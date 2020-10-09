@@ -1,114 +1,122 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {SafeAreaView, View, Text, StyleSheet, Image, ScrollView} from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
+const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <View style={styles.header}>         
+          
+          <View style={styles.head}>
+            <Text style={styles.heading}>News</Text>
+            <Image style={styles.menuIcon} source={require('./images/menuIcon.png')}/>
           </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+
+          <View style={styles.subtitles}>
+            <Text style={styles.subtitle}>Latest Stories</Text>
+            <Text style={styles.subtitle}>Most Read</Text>
+          </View>
+
+
+        </View>
+
+        <View style={styles.news}>
+            <Image style={styles.newsImg} source={require('./images/news1.jpg')} />
+            <Text style={styles.newsHeading}>Covid: Nearly 500,000 redundancies planned since crisis began</Text>
+            <Text style={styles.newsText}>British employers planned 58,000 redundancies in August, taking the total to 498,000 for the first five months of the Covid crisis.
+            </Text>
+        </View> 
+
+        <View style={styles.news}>
+            <Image style={styles.newsImg} source={require('./images/news3.jpg')} />
+            <Text style={styles.newsHeading}>Bounce back loans: Taxpayers may lose £26bn on unpaid loans</Text>
+            <Text style={styles.newsText}>Up to 60% of emergency pandemic loans made under the Bounce Back scheme may never be repaid, a report by the government's spending watchdog says.
+            </Text>
+        </View> 
+
+        <View style={styles.news}>
+            <Image style={styles.newsImg} source={require('./images/news2.jpg')} />
+            <Text style={styles.newsHeading}>Extreme poverty set for first rise since 1998, World Bank warns</Text>
+            <Text style={styles.newsText}>Extreme poverty is set to rise this year for the first time in more than two decades, with coronavirus expected to push up to 115 million people into that category, the World Bank has said.
+            </Text>
+        </View> 
+
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+
+  header: {
+    backgroundColor: '#bb1919'
   },
-  body: {
-    backgroundColor: Colors.white,
+
+  head: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+
+  heading: {
+    fontSize: 30,
+    color: 'white',
+    paddingLeft:10,
+    paddingBottom:5
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
+
+  subtitles: {
+    backgroundColor: '#a91717',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 6
+
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+
+  subtitle: {
+    color: 'white',
+    textDecorationLine: 'underline',
   },
-  highlight: {
-    fontWeight: '700',
+
+  menuIcon: {
+    width: 30,
+    height: 20,
+    marginRight: 15,
+    resizeMode: 'stretch'
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+
+  news: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10,
+    padding: 12,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: 'lightgray',
+    borderRadius: 5
+    
   },
+  
+  newsImg : {
+    width: '100%',
+    height: 170,
+    marginBottom: 5,
+    borderRadius: 5,
+    resizeMode: 'stretch'
+
+  },
+
+  newsHeading: {
+    fontWeight: 'bold',
+    fontSize: 15  
+  },
+
+  newsText: {
+    fontSize:12
+  }
 });
 
 export default App;
