@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
   newsImg: {
     width: '100%',
-    height: Dimensions.get('window').height * 0.3,
+    height: Dimensions.get('window').height * 0.2,
     marginBottom: 5,
     borderRadius: 5,
     resizeMode: 'stretch',

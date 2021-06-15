@@ -109,7 +109,7 @@ const banner_data = [
 ];
 
 const App = () => {
-  const renderNewsData = (data) => <NewsCard news={data.item} />;
+  const renderNewsData = data => <NewsCard news={data.item} />;
 
   const listHeader = () => {
     return (
@@ -129,9 +129,12 @@ const App = () => {
           </View>
         </View>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {banner_data.map((bannerItem) => (
-            <Banner imgText={bannerItem} />
+        <ScrollView
+          style={styles.scrollView}
+          horizontal
+          showsHorizontalScrollIndicator={false}>
+          {banner_data.map(bannerItem => (
+            <Banner key={bannerItem.id} imgText={bannerItem} />
           ))}
         </ScrollView>
       </View>
@@ -155,41 +158,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
   header: {
     backgroundColor: '#bb1919',
   },
-
   head: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    padding: 7,
   },
-
   heading: {
     fontSize: 30,
     color: 'white',
     paddingLeft: 10,
-    paddingBottom: 5,
   },
-
   subtitles: {
     backgroundColor: '#a91717',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    padding: 6,
+    padding: 10,
   },
-
   subtitle: {
     color: 'white',
     textDecorationLine: 'underline',
   },
-
   menuIcon: {
     width: 30,
     height: 20,
     marginRight: 15,
     resizeMode: 'stretch',
+  },
+  scrollView: {
+    marginTop: 8,
   },
 });
 
